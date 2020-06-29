@@ -4,14 +4,14 @@ const helper = require('../helpers/index');
 
 module.exports = {
   verifyJwtToken: function(request, response, next) {
-    const splitToken = request.headers.authorization.split(' ');
-    let token = '';
-    if(splitToken.length > 1) {
-      token = splitToken.pop();
-    } else {
-      token = request.headers.authorization;
-    }
     try {
+      const splitToken = request.headers.authorization.split(' ');
+      let token = '';
+      if(splitToken.length > 1) {
+        token = splitToken.pop();
+      } else {
+        token = request.headers.authorization;
+      }
       const decoded = jwt.verify(token, config.jwtSecretKey);
       request.decodedToken = decoded;
       next();

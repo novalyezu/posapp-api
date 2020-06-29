@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const connection = require('./src/helpers/mysql');
 const routes = require('./src/routes/index');
+const cors = require('cors');
 
 connection.connect(function(error) {
   if (error) throw error;
@@ -14,6 +15,7 @@ connection.connect(function(error) {
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use('/', routes);
 

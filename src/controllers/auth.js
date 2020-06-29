@@ -31,7 +31,7 @@ module.exports = {
           const tokenData = {
             ...result[0]
           };
-          const token = jwt.sign(tokenData, config.jwtSecretKey, { expiresIn: '100m' });
+          const token = jwt.sign(tokenData, config.jwtSecretKey, { expiresIn: '30s' });
           result[0].token = token;
           return helper.response(response, 'success', result, 200);
         }
