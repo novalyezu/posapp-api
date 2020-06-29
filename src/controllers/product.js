@@ -3,6 +3,7 @@ const productModel = require('../models/product');
 
 module.exports = {
   getAllProduct: async function(request, response) {
+    console.log('about');
     try {
       const result = await productModel.getAllProductModel();
       return helper.response(response, 'success', result, 200);
