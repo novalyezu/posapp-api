@@ -12,6 +12,8 @@ connection.connect(function(error) {
   console.log('Database has connected!');
 });
 
+app.use(express.static('uploads'));
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

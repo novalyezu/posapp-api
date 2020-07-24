@@ -9,5 +9,8 @@ module.exports = {
       success: result.status,
       data: result.data
     });
+  },
+  fungsiTambah: function(num1, num2) {
+    return num1 + num2;
   }
 };
