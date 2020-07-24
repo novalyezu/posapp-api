@@ -13,11 +13,11 @@ module.exports = {
     }
   },
   postProduct: async function(request, response) {
-    console.log(request.file, 'controller');
     const setData = request.body;
     setData.image = request.file ? request.file.filename : '';
     try {
       const result = await productModel.postProductModel(setData);
+      request.io.emit('product', result);
       return helper.response(response, 'success', result, 201);
     } catch (error) {
       console.log(error);
